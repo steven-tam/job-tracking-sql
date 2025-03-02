@@ -1,4 +1,5 @@
 import { Database } from "bun:sqlite";
+import type { JobApplicationType } from "../types";
 
 export async function createTable(db: Database) {
   // Define the SQL query properly with column definitions
@@ -20,21 +21,11 @@ export async function createTable(db: Database) {
   await db.run(query);
 }
 
-export async function insertJob(
-  db: Database,
-  position: string | 'null',
-  company: string | 'null',
-  industry: string | 'null',
-  role: string| 'null',
-  datePosted: string | 'null',
-  dateApplied: string | 'null',
-  source: string | 'null',
-  status: 'null' | 'applied' | 'interview' | 'offer' | 'rejected'
-) {
+export async function insertJob( jobApp : JobApplicationType ) {
   try {
     const query = `INSERT INTO job_search (position, company, industry, role, date_posted, date_applied, source, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
-    const insertUser = await db.prepare(query);
-    await insertUser.run(position, company, industry, role, datePosted, dateApplied, source, status);
+    const insertUser = await jobApp.db.prepare(query);
+    await insertUser.run(jobApp.position, jobApp.company, jobApp.industry, jobApp.role, jobApp.datePosted, jobApp.dateApplied, jobApp.source, jobApp.status);
   } catch (e) {
     console.log("Insert Error", e);
   }

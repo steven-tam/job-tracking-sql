@@ -1,5 +1,6 @@
 import { Database } from "bun:sqlite";
 import { createTable, insertJob, updateStatus, deleteJob } from "./query/jobQuery";
+import type { JobApplicationType } from "./types";
 
 // CREATE DATABASE
 const db = new Database("database/jobs.sqlite", {
@@ -7,8 +8,7 @@ const db = new Database("database/jobs.sqlite", {
     create: true,
 });
 db.exec("PRAGMA journal_mode = WAL;");
-// createTable(db)
-
+createTable(db);
 
 // For changing the "job_search" table
 //----------- Query Function References ------------
@@ -19,4 +19,16 @@ db.exec("PRAGMA journal_mode = WAL;");
 
 //----------- Execute Query Functions Below ------------
 
-insertJob(db, "Software Engineering Intern", "Endeavour. Inspired Infrastructure", "Utilities and Renewable Energy", "Intern", "Feb 26, 2025", "Mar 1, 2025", "Handshake", "applied")
+const newJobApplication: JobApplicationType = {
+    db: db,
+    position: "Software Engineering",
+    company: "U.S. News & World Report",
+    industry: "Journalism, Media & Publishing",
+    role: "Intern",
+    datePosted: "Feb 28, 2025",
+    dateApplied: "Mar 2, 2025",
+    source: "Handshake",
+    status: "applied"
+}
+
+insertJob(newJobApplication)
