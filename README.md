@@ -1,4 +1,6 @@
-# yaprap-marketing
+# JOB TRACKING IN SQL
+
+Tracking jobs in Excel is fustrating which is why I use SQL
 
 To install dependencies:
 
@@ -9,7 +11,7 @@ bun install
 To run:
 
 ```bash
-bun run index.ts
+bun start
 ```
 
 This project was created using `bun init` in bun v1.2.1. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
