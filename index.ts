@@ -10,17 +10,13 @@ db.exec("PRAGMA journal_mode = WAL;");
 // createTable(db)
 
 
-// For tracking the job applications
-//----------- Query Functions ------------
+// For making changes in database
+//----------- Query Function References ------------
 
 // deleteJob(db, 2)
 // updateStatus(db, 1, "interview")
-// insertJob(db, "Software Engineer", "Google", "Tech", "Full Stack", "2021-10-01", "2021-10-02", "LinkedIn", "applied")
+// insertJob(db, "Position", "Company", "Industry", "Role", "Date Posted", "Date Applied", "Source", "Status")
 
-//----------- Execute query functions below ------------
-
-// https://play.ht/
-
-// deleteJob(db, 1)
+//----------- Execute Query Dunctions Below ------------
 
 insertJob(db, "Software Engineering Intern", "Endeavour. Inspired Infrastructure", "Utilities and Renewable Energy", "Intern", "Feb 26, 2025", "Mar 1, 2025", "Handshake", "applied")
