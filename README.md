@@ -9,7 +9,7 @@ deleteJob(db: Database, id: number),
 updateStatus(db: Database, id: number, status: string), 
 insertJob(db: Database, position: string, company: string, industry: string, role: string, datePosted: string, dateApplied: string, source: string, status: string).
 
-Call "bun start" to execute a query function and refresh the SQLite database afterwards to see the changes.
+Call "bun start" to execute a query function and refresh the SQLite database afterward to see the changes.
 
 
 To install dependencies:
